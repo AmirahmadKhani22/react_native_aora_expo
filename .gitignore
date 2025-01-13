@@ -9,6 +9,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# nativewind
+nativewind-env.d.ts
+
 # Native
 *.orig.*
 *.jks
