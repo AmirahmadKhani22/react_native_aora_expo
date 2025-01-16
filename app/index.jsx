@@ -17,8 +17,8 @@ export default function App() {
     return (
         <SafeAreaView className="w-full h-full bg-primary">
             <StatusBar style="light" backgroundColor="#161622"/>
-            <ScrollView contentContainerStyle={{width: "100%" , height: "100%" , paddingHorizontal: HPadding}}>
-                <View className={`w-full h-full items-center justify-center`}>
+            <ScrollView contentContainerStyle={{width: "100%" , minHeight: "100%" , paddingHorizontal: HPadding}}>
+                <View className={`w-full min-h-[100vh] items-center justify-center`}>
                     <Image 
                         name="logo"
                         resizeMode="contain"
