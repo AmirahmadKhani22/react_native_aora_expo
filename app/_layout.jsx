@@ -14,7 +14,7 @@ export default function RootLayout() {
             SplashScreen.hideAsync()
         }
     } , [isFontsLoaded , fontsLoadingError])
-    if(true || !isFontsLoaded && !fontsLoadingError) {
+    if(!isFontsLoaded && !fontsLoadingError) {
         return (
             <AppError 
                 message="The fonts are not found!"        
