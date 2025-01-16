@@ -1,9 +1,26 @@
 import "@/css/global.css"
-import {Stack} from "expo-router"
+import {useEffect} from "react"
+import {SplashScreen, Stack} from "expo-router"
 import useImportFonts from "@/hooks/importFonts.js"
+import AppError from "@/components/appError"
 
 export default function RootLayout() {
     const [isFontsLoaded , fontsLoadingError] = useImportFonts()
+    useEffect(() => {
+        if(fontsLoadingError) {
+            throw fontsLoadingError
+        }
+        if(isFontsLoaded) {
+            SplashScreen.hideAsync()
+        }
+    } , [isFontsLoaded , fontsLoadingError])
+    if(true || !isFontsLoaded && !fontsLoadingError) {
+        return (
+            <AppError 
+                message="The fonts are not found!"        
+            />
+        )
+    }
     return (
         <Stack>
             <Stack.Screen name="index" options={{headerShown: false}}/>
