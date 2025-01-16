@@ -22,7 +22,7 @@ export default function App() {
                     <Image 
                         name="logo"
                         resizeMode="contain"
-                        width={windowWidth - HPadding * 2}
+                        width={(windowWidth - HPadding * 2) * 0.5}
                         aspectRatio={345/103}
                     />
                     <Image 
