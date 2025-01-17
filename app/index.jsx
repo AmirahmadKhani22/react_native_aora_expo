@@ -59,7 +59,7 @@ export default function App() {
                     </Text>
                     <PrimaryButton
                         extraContainerStyle="w-full mt-7"
-                        handlePress={event => {router.push("/signUp")}}
+                        handlePress={event => {router.push("/signIn")}}
                     >
                         Continue with Email
                     </PrimaryButton>
