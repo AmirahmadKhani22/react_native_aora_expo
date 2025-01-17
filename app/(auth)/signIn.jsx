@@ -1,7 +1,7 @@
 import {SafeAreaView} from "react-native-safe-area-context" 
 import {ScrollView , View , Text , Dimensions} from "react-native"
 import Image from "@/components/image"
-import SignUpForm from "@/components/signUpForm"
+import SignInForm from "@/components/signInForm"
 import {Link} from "expo-router"
 
 const {width: screenWidth} = Dimensions.get("window")
@@ -20,7 +20,7 @@ export default function SignUp() {
                     />
                     <Text className="mt-14 text-3xl text-white font-psemibold">Log in to Aora</Text>
 
-                    <SignUpForm />
+                    <SignInForm />
                     
                     <Text className="mt-6 text-center text-lg text-gray-100 font-pregular">
                         Don't have account?{" "}
