@@ -7,6 +7,7 @@ export default function AuthLayout() {
             <StatusBar style="light" backgroundColor="#161622"/>
             <Stack>
                 <Stack.Screen name="signUp" options={{headerShown: false}}/>
+                <Stack.Screen name="signIn" options={{headerShown: false}}/>
             </Stack>
         </>
     )
