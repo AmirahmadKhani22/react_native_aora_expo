@@ -16,12 +16,13 @@ export default function FormField({
     extraInputStyle, 
     placeholderColor,
     isSecureTextRequired,
-    inputProps={}
+    ...inputProps
 }) {
     const [shownSecureText , setShownSecureText] = useState(false)
     const _isSecureTextRequired = useMemo(() => {
         return isSecureTextRequired ?? label.match(/password/i)
     })
+    console.log(inputProps)
     return (
         <View className={`gap-y-2 ${extraContainerStyle ?? ""}`}>
             <Text className={`text-base text-gray-100 font-pmedium ${extraLabelStyle ?? ""}`}>{label}</Text>
