@@ -15,7 +15,8 @@ export default function FormField({
     extraLabelStyle, 
     extraInputStyle, 
     placeholderColor,
-    isSecureTextRequired
+    isSecureTextRequired,
+    inputProps={}
 }) {
     const [shownSecureText , setShownSecureText] = useState(false)
     const _isSecureTextRequired = useMemo(() => {
@@ -33,6 +34,7 @@ export default function FormField({
                     placeholderTextColor={placeholderColor ?? "#7b7b8b"}
                     onChangeText={handleTextChange}
                     secureTextEntry={_isSecureTextRequired && !shownSecureText}
+                    {...inputProps}
                 />
                 {
                     _isSecureTextRequired && <TouchableOpacity 
