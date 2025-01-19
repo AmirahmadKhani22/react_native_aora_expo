@@ -9,13 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "platform": "com.amirahmadkhani.react_native_aora_expo_tutorial"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "platform": "com.amirahmadkhani.react_native_aora_expo_tutorial"
     },
     "web": {
       "bundler": "metro",
