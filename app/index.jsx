@@ -1,10 +1,11 @@
+import 'react-native-url-polyfill/auto'
 import {useState} from "react"
 import {SafeAreaView} from "react-native-safe-area-context"
-import {router} from "expo-router"
 import {StatusBar} from "expo-status-bar"
 import {ScrollView , View , Text , Dimensions} from "react-native"
 import Image from "@/components/image"
 import PrimaryButton from "@/components/primaryButton"
+import {router} from "expo-router"
 
 const {width: windowWidth} = Dimensions.get("window")
 const HPadding = 4 * 4
