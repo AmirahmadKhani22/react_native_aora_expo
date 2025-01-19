@@ -1,7 +1,9 @@
 import {useState} from "react"
-import {View} from "react-native"
+import {Alert , View} from "react-native"
 import FormField from "@/components/formField"
 import PrimaryButton from "@/components/primaryButton"
+import {signUp} from "../appwrite/auth"
+import {router} from "expo-router"
 
 export default function SignUpForm() {
     const [formData , setFormData] = useState({
@@ -12,8 +14,19 @@ export default function SignUpForm() {
     const [isSubmitting , setIsSubmitting] = useState(false)
 
     const submit = async event => {
-        // setIsSubmitting(state => !state)
-        // await to send form data through fetch or react query or axios, with method post, in request body
+        for(const item in formData) {
+            formData[item] = formData[item].trim()
+            if(!formData[item]) {
+                return Alert.alert("Error" , "fill form data completely!")
+            }
+        }
+        try {
+            await signUp(formData.username , formData.email , formData.password)
+            setIsSubmitting(state => !state)
+            router.replace("/home")
+        } catch(error) {
+            return Alert.alert("Error" , error.message)
+        }
     }
 
     return (
