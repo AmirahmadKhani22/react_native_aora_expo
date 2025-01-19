@@ -1,4 +1,4 @@
-import {Client} from 'react-native-appwrite'
+import {Client, Databases} from 'react-native-appwrite'
 
 const appWriteConfig = {
     endpoint: "https://cload.appwrite.io/v1",
@@ -16,4 +16,6 @@ client
     .setProject(appWriteConfig.projectId)
     .setPlatform(appWriteConfig.platform)
 
-export {client , appWriteConfig}
+const database = new Databases(client)
+
+export {client , database , appWriteConfig}
