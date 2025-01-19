@@ -1,7 +1,7 @@
 import {Client, Databases} from 'react-native-appwrite'
 
 const appWriteConfig = {
-    endpoint: "https://cload.appwrite.io/v1",
+    endpoint: "https://cloud.appwrite.io/v1",
     projectId: "678ce9490025b061ba67",
     platform: "com.amirahmadkhani.react_native_aora_expo_tutorial",
     databaseId: "678cf42f002c0c5cdbd1",
