@@ -23,6 +23,9 @@ export default function SignUpForm() {
         try {
             await signUp(formData.username , formData.email , formData.password)
             setIsSubmitting(state => !state)
+
+            // store user data in redux
+
             router.replace("/home")
         } catch(error) {
             return Alert.alert("Error" , error.message)
