@@ -19,7 +19,7 @@ export async function signUp(username , email , password) {
             avater: avaterUrl
         }
     )
-    await signIn(userAccount.email , userAccount.password)
+    await signIn(email , password)
     return userAccount
 }
 
