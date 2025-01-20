@@ -1,11 +1,12 @@
 import 'react-native-url-polyfill/auto'
 import {useState} from "react"
+import {useSelector} from "react-redux"
 import {SafeAreaView} from "react-native-safe-area-context"
 import {StatusBar} from "expo-status-bar"
 import {ScrollView , View , Text , Dimensions} from "react-native"
 import Image from "@/components/image"
 import PrimaryButton from "@/components/primaryButton"
-import {router} from "expo-router"
+import {Redirect , router} from "expo-router"
 
 const {width: windowWidth} = Dimensions.get("window")
 const HPadding = 4 * 4
@@ -15,6 +16,12 @@ const pathImageHeight = pathImageWidth / pathImageAspectRatio
 
 export default function App() {
     const [titleTextPosition , setTitleTextPosition] = useState(null)
+    const {user , isDataLoadded} = useSelector(state => state)
+
+    if(isDataLoadded && user) {
+        return <Redirect href="/home"/>
+    }
+
     return (
         <SafeAreaView className="w-full h-full bg-primary">
             <StatusBar style="light" backgroundColor="#161622"/>
