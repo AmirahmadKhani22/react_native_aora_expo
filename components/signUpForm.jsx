@@ -6,9 +6,11 @@ import {signUp} from "../appwrite/auth"
 import {router} from "expo-router"
 import {useDispatch} from "react-redux"
 import {setUserData} from "../redux/slices/user"
+import {setIsDataLoadded} from "../redux/slices/dataLoadded"
 
 export default function SignUpForm() {
     const userDispatch = useDispatch()
+    const isDataLoaddedDispatch = useDispatch()
     const [formData , setFormData] = useState({
         username: "",
         email: "",
@@ -24,10 +26,11 @@ export default function SignUpForm() {
             }
         }
         try {
-            const user = await signUp(formData.username , formData.email , formData.password)
-            userDispatch(setUserData(user))
             setIsSubmitting(state => !state)
-            setTimeout(() => router.replace("/home") , 500)
+            const user = await signUp(formData.username , formData.email , formData.password)
+            isDataLoaddedDispatch(setIsDataLoadded(true))
+            userDispatch(setUserData(user))
+            router.replace("/home")
         } catch(error) {
             return Alert.alert("Error" , error.message)
         }
