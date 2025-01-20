@@ -7,8 +7,6 @@ const user = createSlice({
     },
     reducers: {
         setUserData: (state , action) => {
-            console.log("state" , state)
-            console.log("action" , action)
             return action.payload
         }
     }
