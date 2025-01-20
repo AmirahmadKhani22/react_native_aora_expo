@@ -35,7 +35,7 @@ export async function getSignedInUser() {
             appWriteConfig.userCollectionId,
             [Query.equal("accountId" , userAccount.$id)]
         )
-        return signedInUser
+        return signedInUser.documents[0]
     } catch(error) {
         console.log(error)
         return null
