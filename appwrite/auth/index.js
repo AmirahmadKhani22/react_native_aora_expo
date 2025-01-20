@@ -1,4 +1,4 @@
-import {Account , Avatars , ID} from 'react-native-appwrite'
+import {Account , Avatars , ID , Query} from 'react-native-appwrite'
 import {client , database , appWriteConfig} from "../index"
 
 const account = new Account(client)
@@ -12,6 +12,7 @@ export async function signUp(username , email , password) {
         appWriteConfig.userCollectionId, 
         ID.unique(), 
         {
+            accountId: userAccount.$id,
             username,
             email,
             password,
@@ -24,4 +25,19 @@ export async function signUp(username , email , password) {
 
 export async function signIn(email , password) {
     return await account.createEmailPasswordSession(email , password)
+}
+
+export async function getSignedInUser() {
+    try {
+        const userAccount = await account.get()
+        const signedInUser = await database.listDocuments(
+            appWriteConfig.databaseId,
+            appWriteConfig.userCollectionId,
+            [Query.equal("accountId" , userAccount.$id)]
+        )
+        return signedInUser
+    } catch(error) {
+        console.log(error)
+        return null
+    }
 }
