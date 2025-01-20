@@ -1,21 +1,17 @@
 import 'react-native-url-polyfill/auto'
-import {useState} from "react"
 import {useSelector} from "react-redux"
 import {SafeAreaView} from "react-native-safe-area-context"
 import {StatusBar} from "expo-status-bar"
 import {ScrollView , View , Text , Dimensions} from "react-native"
 import Image from "@/components/image"
+import StartPageTitle from '../components/startPageTitle'
 import PrimaryButton from "@/components/primaryButton"
 import {Redirect , router} from "expo-router"
 
 const {width: windowWidth} = Dimensions.get("window")
 const HPadding = 4 * 4
-const pathImageAspectRatio = 210/37
-const pathImageWidth = 90
-const pathImageHeight = pathImageWidth / pathImageAspectRatio
 
 export default function App() {
-    const [titleTextPosition , setTitleTextPosition] = useState(null)
     const {user , isDataLoadded} = useSelector(state => state)
 
     if(isDataLoadded && user) {
@@ -40,28 +36,7 @@ export default function App() {
                         width={windowWidth - HPadding * 2} 
                         aspectRatio={1125/894}
                     />
-                    <View className="mt-5 relative">
-                        <Text 
-                            className="text-white text-center text-3xl font-psemibold"
-                            onLayout={event => {setTitleTextPosition(event.nativeEvent.layout)}}    
-                        >
-                            Discover Endless Possibilities With{" "}
-                            <Text className="text-secondary-200">Aora</Text>
-                        </Text>
-                        {
-                            titleTextPosition && <Image 
-                                name="path"
-                                resizeMode="contain"
-                                style={{
-                                    position: "absolute", 
-                                    bottom: -(pathImageHeight - 5), 
-                                    left: titleTextPosition.width - (pathImageWidth - 5)
-                                }}
-                                width={pathImageWidth}
-                                aspectRatio={pathImageAspectRatio}
-                            />
-                        }
-                    </View>
+                    <StartPageTitle />
                     <Text className="w-full mt-7 font-pregular text-sm text-gray-100 text-center">
                         Where creativity meets innovation: embark on a journey of limitless exploration with Aora
                     </Text>
