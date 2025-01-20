@@ -6,6 +6,8 @@ import {SplashScreen, Stack} from "expo-router"
 import useImportFonts from "@/hooks/importFonts.js"
 import AppError from "@/components/appError"
 
+SplashScreen.preventAutoHideAsync()
+
 export default function RootLayout() {
     const [isFontsLoaded , fontsLoadingError] = useImportFonts()
     useEffect(() => {
