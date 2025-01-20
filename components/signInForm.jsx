@@ -2,10 +2,13 @@ import {useState} from "react"
 import {Alert , View} from "react-native"
 import FormField from "@/components/formField"
 import PrimaryButton from "@/components/primaryButton"
-import {signIn} from "../appwrite/auth"
+import {signIn , getSignedInUser} from "../appwrite/auth"
 import {router} from "expo-router"
+import {useDispatch} from "react-redux"
+import {setUserData} from "../redux/slices/user"
 
 export default function SignUpForm() {
+    const userDispatch = useDispatch()
     const [formData , setFormData] = useState({
         email: "",
         password: ""
@@ -21,11 +24,11 @@ export default function SignUpForm() {
         }
         try {
             await signIn(formData.email , formData.password)
+            const user = await getSignedInUser()
+            console.log(user)
+            userDispatch(setUserData(user))
             setIsSubmitting(state => !state)
-
-            // store user data in redux
-
-            router.replace("/home")
+            setTimeout(() => router.replace("/home") , 500)
         } catch(error) {
             return Alert.alert("Error" , error.message)
         }
