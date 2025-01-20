@@ -4,8 +4,11 @@ import FormField from "@/components/formField"
 import PrimaryButton from "@/components/primaryButton"
 import {signUp} from "../appwrite/auth"
 import {router} from "expo-router"
+import {useDispatch} from "react-redux"
+import {setUserData} from "../redux/slices/user"
 
 export default function SignUpForm() {
+    const userDispatch = useDispatch()
     const [formData , setFormData] = useState({
         username: "",
         email: "",
@@ -21,12 +24,10 @@ export default function SignUpForm() {
             }
         }
         try {
-            await signUp(formData.username , formData.email , formData.password)
+            const user = await signUp(formData.username , formData.email , formData.password)
+            userDispatch(setUserData(user))
             setIsSubmitting(state => !state)
-
-            // store user data in redux
-
-            router.replace("/home")
+            setTimeout(() => router.replace("/home") , 500)
         } catch(error) {
             return Alert.alert("Error" , error.message)
         }
