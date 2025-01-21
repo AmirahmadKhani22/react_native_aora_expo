@@ -1,10 +1,26 @@
 import {Image as RNImage} from "react-native"
-import {images} from "../constants"
+import {images , icons} from "../constants"
 
-export default function Image({name , source , width , height , aspectRatio , style={} , ...others}) {
+export default function Image({
+    category="image",
+    name, 
+    source, 
+    width, 
+    height, 
+    aspectRatio, 
+    style={}, 
+    ...others
+}) {
+    let _category
+    if(category === "image") {
+        _category = images
+    }
+    if(category === "icon") {
+        _category = icons
+    }
     return (
         <RNImage
-            source={name ? images[name] : source}
+            source={name ? _category[name] : source}
             style={{width , height: height ?? width / aspectRatio , ...style}}
             {...others}
         />
