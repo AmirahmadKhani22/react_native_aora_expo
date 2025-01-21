@@ -12,7 +12,8 @@ const {width: windowWidth} = Dimensions.get("window")
 const HPadding = 4 * 4
 
 export default function App() {
-    const {user , isDataLoadded} = useSelector(state => state)
+    const user = useSelector(state => state.user)
+    const isDataLoadded = useSelector(state => state.isDataLoadded)
 
     if(isDataLoadded && user) {
         return <Redirect href="/home"/>
