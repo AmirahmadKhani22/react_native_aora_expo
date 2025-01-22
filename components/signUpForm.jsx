@@ -5,19 +5,17 @@ import PrimaryButton from "@/components/primaryButton"
 import {signUp} from "../appwrite/auth"
 import {router} from "expo-router"
 import {useDispatch} from "react-redux"
-import {setUserData} from "../redux/slices/user"
-import {setIsDataLoadded} from "../redux/slices/dataLoadded"
+import {setUserData , setUserNoData} from "../redux/slices/user"
+import {setAuthStatusUnauthorized , setAuthStatusAuthorized} from "../redux/slices/authStatus"
 
 export default function SignUpForm() {
     const userDispatch = useDispatch()
-    const isDataLoaddedDispatch = useDispatch()
+    const authStatusDispatch = useDispatch()
     const [formData , setFormData] = useState({
         username: "",
         email: "",
         password: ""
     })
-    const [isSubmitting , setIsSubmitting] = useState(false)
-
     const submit = async event => {
         for(const item in formData) {
             formData[item] = formData[item].trim()
@@ -26,12 +24,13 @@ export default function SignUpForm() {
             }
         }
         try {
-            setIsSubmitting(state => !state)
             const user = await signUp(formData.username , formData.email , formData.password)
-            isDataLoaddedDispatch(setIsDataLoadded(true))
+            authStatusDispatch(setAuthStatusAuthorized())
             userDispatch(setUserData(user))
             router.replace("/home")
         } catch(error) {
+            authStatusDispatch(setAuthStatusUnauthorized())
+            userDispatch(setUserNoData())
             return Alert.alert("Error" , error.message)
         }
     }
@@ -54,7 +53,6 @@ export default function SignUpForm() {
             />
             <PrimaryButton
                 handlePress={submit}
-                isLoading={isSubmitting}
             >
                 Sign Up
             </PrimaryButton>
