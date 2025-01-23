@@ -2,6 +2,8 @@ import {StatusBar} from "expo-status-bar"
 import {Tabs} from "expo-router"
 import {TabBarIcon , TabBarLabel} from "@/components/tabBarItem"
 
+const tabBarIconSize = 32
+
 export default function TabsLayout() {
     return (
         <>
@@ -10,10 +12,10 @@ export default function TabsLayout() {
                 screenOptions={{
                     headerShown: false,
                     tabBarStyle: {
-                        minHeight: 85,
+                        minHeight: 80,
                         backgroundColor: "#161622",
                         borderTopWidth: 1,
-                        borderTopColor: "#232533"
+                        borderTopColor: "#232533",
                     },
                     tabBarItemStyle: {
                         flexDirection: "row",
@@ -26,17 +28,17 @@ export default function TabsLayout() {
                 <Tabs.Screen 
                     name="Home"
                     options={{
-                        TabBarIcon: ({focused , color , size}) => {
+                        tabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
                                     name="home"
                                     focused={focused}
                                     color={color}
-                                    size={size}
+                                    size={tabBarIconSize}
                                 />
                             )
                         },
-                        TabBarLabel: ({focused , color , position , children}) => {
+                        tabBarLabel: ({focused , color , position , children}) => {
                             return (
                                 <TabBarLabel
                                     focused={focused}
@@ -51,17 +53,17 @@ export default function TabsLayout() {
                 <Tabs.Screen 
                     name="Bookmark"
                     options={{
-                        TabBarIcon: ({focused , color , size}) => {
+                        tabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
                                     name="bookmark"
                                     focused={focused}
                                     color={color}
-                                    size={size}
+                                    size={tabBarIconSize}
                                 />
                             )
                         },
-                        TabBarLabel: ({focused , color , position , children}) => {
+                        tabBarLabel: ({focused , color , position , children}) => {
                             return (
                                 <TabBarLabel
                                     focused={focused}
@@ -76,17 +78,17 @@ export default function TabsLayout() {
                 <Tabs.Screen 
                     name="Create"
                     options={{
-                        TabBarIcon: ({focused , color , size}) => {
+                        tabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
                                     name="plus"
                                     focused={focused}
                                     color={color}
-                                    size={size}
+                                    size={tabBarIconSize}
                                 />
                             )
                         },
-                        TabBarLabel: ({focused , color , position , children}) => {
+                        tabBarLabel: ({focused , color , position , children}) => {
                             return (
                                 <TabBarLabel
                                     focused={focused}
@@ -101,17 +103,17 @@ export default function TabsLayout() {
                 <Tabs.Screen 
                     name="Profile"
                     options={{
-                        TabBarIcon: ({focused , color , size}) => {
+                        tabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
                                     name="profile"
                                     focused={focused}
                                     color={color}
-                                    size={size}
+                                    size={tabBarIconSize}
                                 />
                             )
                         },
-                        TabBarLabel: ({focused , color , position , children}) => {
+                        tabBarLabel: ({focused , color , position , children}) => {
                             return (
                                 <TabBarLabel
                                     focused={focused}
