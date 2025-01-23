@@ -52,7 +52,7 @@ export default function App() {
     }
 
     if(authStatus === "authorized" && user) {
-        return <Redirect href="/home"/>
+        return <Redirect href="/Home"/>
     }
 
     return (

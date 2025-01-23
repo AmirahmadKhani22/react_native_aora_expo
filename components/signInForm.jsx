@@ -28,7 +28,7 @@ export default function SignUpForm() {
             const user = await getSignedInUser()
             authStatusDispatch(setAuthStatusAuthorized())
             userDispatch(setUserData(user))
-            router.replace("/home")
+            router.replace("/Home")
         } catch(error) {
             authStatusDispatch(setAuthStatusUnauthorized())
             userDispatch(setUserNoData())
