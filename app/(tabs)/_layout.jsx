@@ -29,7 +29,7 @@ export default function TabsLayout() {
                         TabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
-                                    name=""
+                                    name="home"
                                     focused={focused}
                                     color={color}
                                     size={size}
@@ -54,7 +54,7 @@ export default function TabsLayout() {
                         TabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
-                                    name=""
+                                    name="bookmark"
                                     focused={focused}
                                     color={color}
                                     size={size}
@@ -79,7 +79,7 @@ export default function TabsLayout() {
                         TabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
-                                    name=""
+                                    name="plus"
                                     focused={focused}
                                     color={color}
                                     size={size}
@@ -104,7 +104,7 @@ export default function TabsLayout() {
                         TabBarIcon: ({focused , color , size}) => {
                             return (
                                 <TabBarIcon 
-                                    name=""
+                                    name="profile"
                                     focused={focused}
                                     color={color}
                                     size={size}
