@@ -5,6 +5,7 @@ export function TabBarIcon({name , focused , color , size}) {
     return (
         <View>
             <Image
+                category="icon"
                 name={name}
                 width={size}
                 height={size}
