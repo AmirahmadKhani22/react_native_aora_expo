@@ -1,6 +1,7 @@
 import {View} from "react-native"
 import Welcome from "@/components/tabs/home/welcome"
-import SearchInput from "./searchInput"
+import SearchInput from "@/components/tabs/home/searchInput"
+import LastVideos from "@/components/tabs/home/lastVideos"
 
 export default function ListHeader() {
     return (
@@ -12,6 +13,7 @@ export default function ListHeader() {
                     placeholder="Search for a video topic"
                 />
             </View>
+            <LastVideos />
         </View>
     )
 }
