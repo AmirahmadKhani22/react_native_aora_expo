@@ -9,7 +9,6 @@ const magnifierButtonSize = 4 * 8
 export default function SearchInput({
     placeholder,
     extraContainerStyle, 
-    extraLabelStyle, 
     extraInputStyle, 
     placeholderColor,
     ...inputProps
