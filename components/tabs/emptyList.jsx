@@ -4,8 +4,9 @@ import PrimaryButton from "@/components/primaryButton"
 import {router} from "expo-router"
 
 const {width: screenWidth} = Dimensions.get("window")
+const HPadding = 4 * 2
 
-export default function EmptyList({title , subtitle , HPadding}) {
+export default function EmptyList({title , subtitle}) {
     return (
         <View className="items-center justify-center">
             <Image 
