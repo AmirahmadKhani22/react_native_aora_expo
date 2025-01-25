@@ -4,7 +4,7 @@ import PrimaryButton from "@/components/primaryButton"
 import {router} from "expo-router"
 
 const {width: screenWidth} = Dimensions.get("window")
-const HPadding = 4 * 2
+const HPadding = 4 * 4
 
 export default function EmptyList({title , subtitle}) {
     return (
