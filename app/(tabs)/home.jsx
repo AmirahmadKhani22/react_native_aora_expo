@@ -20,8 +20,8 @@ export default function Home() {
         )
     }
     return (
-        <SafeAreaView className="min-h-[100vh] bg-primary">
-            <View className="">
+        <SafeAreaView className="min-h-[100vh] bg-primary" style={{paddingHorizontal: HPadding}}>
+            <View className="w-full">
                 <FlatList
                     data={videos}
                     keyExtractor={(item , index) => index}
