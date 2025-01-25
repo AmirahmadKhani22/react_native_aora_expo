@@ -3,6 +3,7 @@ import {View , FlatList} from "react-native"
 import useVideo from "@/hooks/useVideo"
 import PrimaryIndicator from "@/components/primaryIndicator"
 import ListHeader from "@/components/tabs/home/listHeader"
+import ListItem from "@/components/tabs/home/listItem"
 import EmptyList from "@/components/tabs/emptyList"
 
 const HPadding = 4 * 4
@@ -22,16 +23,23 @@ export default function Home() {
         <SafeAreaView className="min-h-[100vh] bg-primary">
             <View className="">
                 <FlatList
+                    data={videos}
+                    keyExtractor={(item , index) => index}
+                    renderItem={({item}) => (
+                        <ListItem
+                            data={item}
+                        />
+                    )}
                     ListHeaderComponent={() => (
                         <ListHeader />
                     )}
                     ListEmptyComponent={() => (
                         <EmptyList 
-                            HPadding={HPadding}
                             title="No Videos Found"
                             subtitle="Be the first one to upload a video"
                         />
                     )}
+                    initialNumToRender={3}
                 />
             </View>
         </SafeAreaView>
